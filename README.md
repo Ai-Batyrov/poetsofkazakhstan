@@ -1,7 +1,6 @@
 # Poets of Kazakhstan
 ````
 This project was prepared for "Web-programming: back-end" course
-
 ````
 ## About author
 ````
