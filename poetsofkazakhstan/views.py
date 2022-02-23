@@ -1,7 +1,6 @@
 from datetime import datetime
 from django.shortcuts import render
 from django.http import *
-
 from .models import *
 
 menu = [{'title': "Home", 'url_name': 'index'},
@@ -11,6 +10,7 @@ menu = [{'title': "Home", 'url_name': 'index'},
         ]
 
 
+# useful fields
 def get_year():
     year = datetime.today().year
     return year
@@ -36,6 +36,7 @@ def get_info():
     return info
 
 
+# view functions
 def index(request):
     context = {
         'poets': get_poets(),
