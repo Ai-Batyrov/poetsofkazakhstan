@@ -1,0 +1,48 @@
+{% load static %}
+{% load poetsofkazakhstan_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link type="text/css" href="{% static 'poetsofkazakhstan/css/style.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'poetsofkazakhstan/css/dropdown.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'poetsofkazakhstan/css/index.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'poetsofkazakhstan/css/view-button-div.css' %}" rel="stylesheet">
+</head>
+<body>
+<header>
+        <span>
+            <img alt="logo" src="{% static 'poetsofkazakhstan/img/logo.jpg' %}">
+        </span>
+    <div class="header_menu">
+        {% block mainmenu %}
+            <ul>
+                {% for item in menu %}
+                    <li>
+                        <div class="dropdown">
+                            <a class="dropbtn" href="{% url item.url_name %}">
+                                {{ item.title }}
+                            </a>
+                            <div class="dropdown-content">
+                                {% for c in categories %}
+                                    {% if item.title == 'Categories' %}
+                                        <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endblock mainmenu %}
+    </div>
+</header>
+
+<main>
+    {% block content %}
+
+    {% endblock %}
+</main>
+</body>
+</html>

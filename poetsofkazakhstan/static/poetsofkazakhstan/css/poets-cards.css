@@ -1,0 +1,40 @@
+.poets {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.poets p {
+    font-weight: bold;
+    color: darkblue;
+    alignment: left;
+}
+
+.block {
+    width: 95%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.poet_card {
+    display: flex;
+    justify-content: space-between;
+    width: 25rem;
+    height: 10rem;
+    padding: 1rem;
+    box-shadow: 3px 3px 8px rgb(0 0 0 / 30%);
+    border-radius: 0.6rem;
+    margin: 0 1.5rem 2rem 0;
+    background-color: #ffffff;
+}
+
+.poet_card > .left {
+    width: 30%;
+}
+
+.poet_card > .right {
+    width: 65%;
+}

@@ -1,0 +1,17 @@
+{% extends 'poetsofkazakhstan/base.html' %}
+
+{% block content %}
+    {% for poem in poems %}
+        {% for author in poets %}
+            {% if poem.id == poem_id and poem.poet_id_id == author.id %}
+                {% autoescape on %}
+                    <h4 style="align-self: end">
+                        {{ author.name }}
+                    </h4>
+                    <h2>{{ poem.name }}</h2>
+                    <div>{{ poem.main | linebreaks }}</div>
+                {% endautoescape %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

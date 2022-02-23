@@ -1,0 +1,24 @@
+{% extends 'poetsofkazakhstan/base.html' %}
+{% load static %}
+
+{% block content %}
+    <link type="text/css" href="{% static 'poetsofkazakhstan/css/category-card.css' %}" rel="stylesheet">
+
+    <h1>Categories</h1>
+
+    <div class="category-page-main">
+        {% for category in categories %}
+            <div class="category-card">
+                <h3>{{ category.name }}</h3>
+                <div class="category-description">
+                    {{ category.description }}
+                </div>
+                <div class="view_button_div">
+                    <a href="{{ category.get_absolute_url }}">
+                        <button type="button">View category</button>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

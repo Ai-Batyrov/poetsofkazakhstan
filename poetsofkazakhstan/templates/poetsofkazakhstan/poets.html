@@ -1,0 +1,44 @@
+{% extends 'poetsofkazakhstan/base.html' %}
+{% load static %}
+{% block content %}
+    <link type="text/css" href="{% static 'poetsofkazakhstan/css/poet.css' %}" rel="stylesheet">
+    {% for poet in poets %}
+        {% if poet.pk == poet_id %}
+            <div class="info_about_poet">
+                <div class="left">
+                    <img alt="poet_img" src="{% static 'poetsofkazakhstan/img/poets/' %}{{ poet.name }}.jpg"
+                         width="250px">
+                </div>
+                <div class="right">
+                    <div class="top">
+                        <h1>{{ poet.name }}</h1>
+                        <h3>{{ poet.year_of_life }}</h3>
+                    </div>
+                    <div class="buttom">
+                        {% for info in informations %}
+                            {% if info.pk == poet.info_id_id %}
+                                <div>
+                                    {{ info.info | striptags | linebreaks }}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <h2>Poems</h2>
+            <div class="poems">
+                {% for poem in poems %}
+                    {% if poem.poet_id_id == poet_id %}
+                        <div class="poem_card">
+                            {{ poem.name }}
+                            <a href="{{ poem.get_absolute_url }}" class="button_div">
+                                <button type="button">View</button>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}

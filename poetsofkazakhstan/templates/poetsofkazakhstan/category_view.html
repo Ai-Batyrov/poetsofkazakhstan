@@ -1,0 +1,33 @@
+{% extends 'poetsofkazakhstan/base.html' %}
+{% load static %}
+
+{% block content %}
+    <link type="text/css" href="{% static 'poetsofkazakhstan/css/poets-cards.css' %}" rel="stylesheet">
+
+    {% for c in categories %}
+        {% if c.pk == category_id %}
+            <h1>{{ c.name }}</h1>
+        {% endif %}
+    {% endfor %}
+    <div class="block">
+        {% for poet in poets %}
+            {% if category_id == poet.category_id_id %}
+                <div class="poet_card">
+                    <div class="left">
+                        <img alt="poet_img" src="{% static 'poetsofkazakhstan/img/poets/' %}{{ poet.name }}.jpg"
+                             width="100%">
+                    </div>
+                    <div class="right">
+                        <h3>{{ poet.name }}</h3>
+                        <p>{{ poet.year_of_life }}</p>
+                        <div class="view_button_div">
+                            <a href="{{ poet.get_absolute_url }}">
+                                <button type="button">View more</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

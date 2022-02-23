@@ -1,0 +1,51 @@
+.info_about_poet, .poems {
+    width: 95%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.left {
+    width: 20%;
+    height: inherit;
+}
+
+.right {
+    width: 80%;
+    height: auto;
+}
+
+.buttom {
+    width: 90%;
+    text-align: justify;
+}
+
+.poems {
+    flex-wrap: wrap;
+}
+
+.poem_card {
+    width: 20rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 3px 3px 8px rgb(0 0 0 / 30%);
+    border-radius: 0.6rem;
+    margin: 0 1.5rem 2rem 0;
+    background-color: #ffffff;
+}
+
+.poem_card a button {
+    text-decoration: none;
+    background-color: #8e8d8a;
+    color: #e6e7dc;
+    width: 4rem;
+    height: auto;
+    border-radius: 0.4rem;
+    padding: 0.3rem;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
